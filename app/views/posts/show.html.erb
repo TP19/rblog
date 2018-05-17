@@ -1,1 +1,12 @@
-show.html.erb
+
+
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.created_at.strftime("%d. %b %Y") %></p> 
+
+<p><%= @post.body %></p>
+
+<%= link_to "Edit Post", edit_post_path %> |
+
+<%= link_to "Delete", @post, :confirm => "Are you sure you want to delete?", :method => :delete %>

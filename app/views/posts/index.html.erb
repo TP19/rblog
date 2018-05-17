@@ -1,7 +1,14 @@
-<p><%= @content_first %></p>
 
 
 
-<h3> Write a post .. </h3> 
+
+<% @posts.each do |post| %>
+
+<h3><%= link_to post.title,post %></h3> 
+
+<h2><%= post.body %></h2> 
+
+<% end %>
 
 
+<%= link_to "Add New Post",new_post_path %>
