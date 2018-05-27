@@ -1,4 +1,34 @@
- <%= render :partial => '/partials/header.html.erb', :formats => [:html] %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Rblog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	
+<div id="wrapper">
+		<div id="header-wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1><a href="#"> The Blog </a></h1>
+					
+
+				</div id="menu">
+				<ul class="main-nav">
+						<li><%= link_to "Home", root_path %></li>
+						<li><%= link_to "About", about_path  %></li>
+						<li><%= link_to "Contact", contact_path %></li>
+						<li><%= link_to "Resources", resources_path %></li>
+	</ul>		
+				</div>
+			</div>
+		</div>
+
+		
 
 <div id="page">
 	<div id="page-bgtop">
@@ -41,8 +71,37 @@
 				<div>
 				-->
 
-				<%= render :partial => 'partials/sidebar', :formats => :html %>
+					<div id="sidebar">
+						<ul>
+							<li>
+								<div id="search">
+									<%= form_for @search do |f| %>
+									<%= f.text_field :title_or_body_contains %>
+									<%= f.submit "Search" %>
+									<% end %>
+								</div>
+							</li>
+							<h2> Categories </h2>
+							<ul>
+								
+				<% all_categories.each do |cat| %>
+				<li><%= link_to cat.name, category_path(:id => cat.id) %>
+				</li>
+				<% end %>
+							</ul>
+						</ul>
+							<h2> Blogroll </h2>
+							<ul>
+							<% all_posts.each do |post| %>
+							<li><%= link_to post.title, post_path(:id => post.id) %></li> 
+							<% end %>
+							</ul>
+						
+					</div>
 
+					<div style="clear: both">&nbsp;<div>
+					</div>
+				</div>
 			
 			
 
