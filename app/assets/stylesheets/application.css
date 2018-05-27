@@ -52,8 +52,7 @@ h3 {
 }
 
 p, ul, li {
-	margin-top: 0
-	line-height: 100%;
+	margin-top: 0;
 }
 
 a {
@@ -111,10 +110,9 @@ color: #CFF4FF;
 
 #logo p {
 
-	border:none;
-	margin: ;
+	border: none;
 	padding: 1000px 0 0 32px;
-	color:;
+	
 }
 
 #logo a {
@@ -135,13 +133,11 @@ color: #CFF4FF;
 	height: 3em;
 	margin: 0px auto;
 	padding: 0em;
-	background:;
 	margin-left: 14em;
 	
 }
 
 .main-nav ul {
-	margin:;
 	padding:  0px 0px 0px;
 	list-style: none;; 
 }
@@ -150,14 +146,12 @@ color: #CFF4FF;
   float: left; 
 	 padding: 0.1em;
 list-style-type: none;
-	; 
 	  }
 
 .main-nav a
 
 {
-	position: relative
-	text-align:;
+	position: relative;
 	display: block;
 	padding: 1em;
 	text-transform: uppercase;
@@ -242,7 +236,7 @@ padding: 0px 0px 0px 20px; }
 	overflow: hidden;
 	margin-bottom: 15px;
 	padding: 5px;
-	background:black;
+	background: black;
 
 }
 
@@ -343,10 +337,9 @@ font-style: italic;
 
 #footer {
 	
-	margin-top: 1px; 
-	 
-	width: 1000px
-		background-color: black; 
+	margin-top: 1px;  
+	width: 1000px;
+	background-color: black; 
 }
 
 #footer p {
@@ -356,8 +349,7 @@ font-style: italic;
 	color:white;
 	padding: 10px 10px 10px 10px;
 	text-align: center; 
-			background-color: black; 
-
+	background-color: black; 
 }
 
 #footer a {
