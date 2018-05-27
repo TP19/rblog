@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@search = Post.search(params[:search])
+		@posts = @search.all
 
 	end 
 
@@ -42,7 +43,7 @@ end
 	def show
 
 		@post = Post.find(params[:id])
-
+		@user = AdminUser.all
 	end
 
 	def destroy

@@ -4,8 +4,11 @@
 <h1><%= @post.title %></h1>
 
 <p><%= @post.created_at.strftime("%d. %b %Y") %></p> 
+<p> Created By : <%= @post.admin_user.name %></p>
 
 <p><%= @post.body %></p>
+
+<p> Category: <%= link_to @post.category.name,categories_path(:id => @post.category.id) %> </p>
 
 <%= link_to "Edit Post", edit_post_path %> |
 

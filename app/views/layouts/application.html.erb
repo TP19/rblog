@@ -1,17 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Rblog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<%= render "partials/header" %>
 
-<% flash .each do |key,value| %> 
-<p><%= value %></p>
-<% end %> 
-<%= yield %>
+<div id="page">
+	<div id="page-bgtop">
+		<div id="page-bgbtm">
+			
+			<div id="content">
 
+
+				<div class="flash-message">
+					<% flash .each do |key,value| %> 
+					<p><%= value %></p>
+					<% end %> 
+				</div>
+				<%= yield %>
+				</div>
+				</div>
+				</div>
+				</div>
+			</div>
+				 <!-- The yeld replaces the posts (below a sampled example)
+
+				<div class="post">
+					<h2 class="title"><a href="post.html">Welcome to my Blog </a></h2>
+					<div class="entry">
+						<p> Blog written in Ruby on Rails </p>
+					</div>
+					<div class="byline">
+						<p class="meta"> A hardcoded post </p>
+						<p class="link"><a href="post.html">Read More </a> &nbsp;
+						</p>
+					</div>
+				</div>
+				<div class="post">
+					<h2 class="title"><a href="post.html"> Lorem ipsum sed</a></h2>
+				</div class="entry">
+				<p> paragraph </p>
+			</div>
+			<div class="byline">
+				<p class ="meta"> Some meta Post </p>
+				<div>
+				-->
+
+				<%= render "partials/sidebar" %>
+			
+
+			<div>
+		<div id="footer">
+			<p>&copy; 2018, The Blog </p>
+		</div>
+</div>
 </body>
 </html>
+
+
+

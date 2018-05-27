@@ -11,3 +11,358 @@
  *= require_self
  *= require_tree .
  */
+
+
+
+
+
+
+
+body {
+
+	margin: 0;
+	padding: 0;
+	background: #CFF4FF;
+	font-size: 1.6em;
+	color: #000;
+	
+}
+
+strong {
+	color: white;
+}
+
+
+h1, h2, h3 {
+
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+p, ul, li {
+	margin-top: 0
+	line-height: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+
+a:hover {
+	text-decoration: none; 
+	color: #CFF4FF;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 4em;
+	background: #000;
+}
+
+
+#header-wrapper {
+	height: 2em;
+}
+
+#header {
+	margin: 0em auto;
+	padding: 0px 0px 0px 0px;
+}
+
+#logo {
+	float: left;
+	width: 279px;
+	margin: -1em;
+	padding: 0em;
+	margin-top: -3em;
+}
+
+#logo h1 a {
+color: #CFF4FF;
+}
+
+#logo h1 {
+	
+	padding: 40px 20px 10px 30px;
+	text-transform: uppercase;
+	font-size: 3em;
+	font-weight: bold;
+
+
+}
+
+#logo h1 span {
+
+}
+
+#logo p {
+
+	border:none;
+	margin: ;
+	padding: 1000px 0 0 32px;
+	color:;
+}
+
+#logo a {
+	text-decoration: none;
+	border: none;
+	background:none;
+	padding: 20px 0px 0px 0px;
+}
+
+#search input[type="text"] {
+	width: 180px;
+}
+
+
+.main-nav {
+	position: absolute;
+	float: right;
+	height: 3em;
+	margin: 0px auto;
+	padding: 0em;
+	background:;
+	margin-left: 14em;
+	
+}
+
+.main-nav ul {
+	margin:;
+	padding:  0px 0px 0px;
+	list-style: none;; 
+}
+
+.main-nav li { 
+  float: left; 
+	 padding: 0.1em;
+list-style-type: none;
+	; 
+	  }
+
+.main-nav a
+
+{
+	position: relative
+	text-align:;
+	display: block;
+	padding: 1em;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	text-decoration: none; 
+	margin-top: 0em;
+background-color: #CFF4FF;
+
+}
+
+.main-nav a:hover, .main-nav.current_page_item a {
+	background: black;
+	border: 3px double white;
+	text-decoration: none;
+
+}
+
+.main-nav.current_page_item a {}
+
+
+#page { 
+
+width: 1000px;
+margin: 0 auto;
+padding: 0px 0px 0px 20px; }
+
+#page-bgtop { 
+	padding: 20px 0px;
+
+ }
+
+ .post,.post_full,.page {
+
+ 	margin-bottom: 20px;
+ 	padding: 30px 21px 20px 20px;
+ 	box-shadow: inset 0px 0px 1px 1px black;
+ 	outline: 2px groove black;
+ 	outline-offset: -5px;
+ 	width: 600px;
+ 	float: right;
+ 	background-color: #FFFFE0;
+ }
+
+ .post .title a,.page .title a {
+ 	text-decoration: underline;
+ }
+
+ .post.title,.page.title {
+ 	height: 41px;
+ 	padding: 0px 0px 0px 0px;
+ 	letter-spacing: -1px;
+ } 
+
+ .post.entry {
+ 	padding: 20px 30px 20px 30px; 
+ 	padding-bottom: 20px;
+ 	text-align: justify;
+ }
+
+ .post.byline {
+ 	clear: both;
+ 	overflow: hidden;
+ 	padding-bottom: 20px;
+ }
+
+ .post.meta {
+ 	float: left;
+ }
+
+ .post.links { 
+ float: right; }
+
+
+.post_full .byline p{
+	padding: 0;
+	margin: 0;
+}
+
+
+.post_full .byline {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 15px;
+	padding: 5px;
+	background:black;
+
+}
+
+
+#search form li {
+	
+	list-style-type: none; 
+	text-decoration:  none;
+}
+
+input#search-text li {
+		list-style-type: none; 
+}
+
+/*Sidebar*/
+
+#sidebar {
+	margin-top: 1.2em; 
+	float: left;
+	width: 280px;
+	margin-left: 3.5em;
+	padding: 20px 20px 0px 0px;
+	background-color: black;
+	outline: 2px solid #FFFFE0; 
+	
+	
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 30px;
+
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 30px;
+	list-style-type: none;
+	text-align: center;
+}
+
+#sidebar li li {
+	line-height: 35px;
+	margin: 0px;
+	border-left: none;
+	text-align: left;
+}
+
+#sidebar li li span {
+display: block;
+margin-top: -20px;
+padding: 0;
+font-size: 11px;
+font-style: italic;
+
+}
+
+#sidebar li li a {
+	padding: 0px 0px 0px 15px;
+}
+
+#sidebar h2 {
+	height: 60px;
+	margin: 0px 0px 20px 0px;
+	padding: 10px 0px 0px 20px;
+	text-align: left;
+	color: white;  
+}
+
+#sidebar p {
+	margin: 0px;
+	padding: 0px 20px 20px 20px;
+	text-align: justify;
+}
+
+#sidebar a {
+	text-align: center;
+	background-color: #CFF4FF;
+	padding: 0.3em;
+	outline: solid 1px white;
+}
+
+#sidebar a:hover {
+	text-decoration: none;
+	color: #CFF4FF;
+	background-color: black;
+	outline: 3px double white;
+}
+
+#content {
+	float: right;
+	width: 700px;
+	padding: 50px 0px 0px 0px;
+}
+
+
+#footer {
+	
+	margin-top: 1px; 
+	 
+	width: 1000px
+		background-color: black; 
+}
+
+#footer p {
+	margin: 0; 
+	line-height: normal;
+	font-size: 1.2rem;
+	color:white;
+	padding: 10px 10px 10px 10px;
+	text-align: center; 
+			background-color: black; 
+
+}
+
+#footer a {
+	
+color: white;  
+}
+
+

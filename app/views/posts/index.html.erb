@@ -4,10 +4,17 @@
 
 <% @posts.each do |post| %>
 
-<h3><%= link_to post.title,post %></h3> 
+<div class="post">
 
-<h2><%= post.body %></h2> 
+<h2 class = "title"><%= link_to post.title,post %></h2> 
 
+
+<div class="entry"><h3><%= post.body %></h3> </div>
+<div class="byline">
+	<p class ="meta"> Posted By <%= post.admin_user.name %></p>
+	<p class ="links"><%= link_to "Read More", post  %></p>
+	</div>
+</div>
 <% end %>
 
 

@@ -1,2 +1,25 @@
-<h1>Homepage</h1>
-<p>Ruby App</p>
+
+
+
+
+
+<% @posts.each do |post| %>
+
+<div class="post">
+
+<h2 class="title"><%= link_to post.title,post %></h2>
+
+<div class="entry"><%= post.body %></div>
+<div class="byline">
+	<p class ="meta"> Posted By <%= post.admin_user.name %></p>
+	<p class ="links"><%= link_to "Read More", post  %></p>
+</p>
+</div>
+
+
+</div>
+
+
+
+<% end %> 
+
