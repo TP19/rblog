@@ -1,1 +1,398 @@
-(function(){window.AA={}}).call(this),function(){window.AA.CheckboxToggler=AA.CheckboxToggler=function(){function t(t,e){var n;this.options=t,this.container=e,n={},this.options=$.extend({},n,options),this._init(),this._bind()}return t.prototype._init=function(){if(!this.container)throw new Error("Container element not found");if(this.$container=$(this.container),!this.$container.find(".toggle_all").length)throw new Error('"toggle all" checkbox not found');return this.toggle_all_checkbox=this.$container.find(".toggle_all"),this.checkboxes=this.$container.find(":checkbox").not(this.toggle_all_checkbox)},t.prototype._bind=function(){var e,t;return this.checkboxes.change((e=this,function(t){return e._didChangeCheckbox(t.target)})),this.toggle_all_checkbox.change((t=this,function(){return t._didChangeToggleAllCheckbox()}))},t.prototype._didChangeCheckbox=function(){switch(this.checkboxes.filter(":checked").length){case this.checkboxes.length-1:return this.toggle_all_checkbox.prop({checked:null});case this.checkboxes.length:return this.toggle_all_checkbox.prop({checked:!0})}},t.prototype._didChangeToggleAllCheckbox=function(){var n,o;return n=!!this.toggle_all_checkbox.prop("checked")||null,this.checkboxes.each((o=this,function(t,e){return $(e).prop({checked:n}),o._didChangeCheckbox(e)}))},t}(),jQuery(function(t){return t.widget.bridge("checkboxToggler",AA.CheckboxToggler)})}.call(this),function(){var t;window.AA.DropdownMenu=AA.DropdownMenu=function(){function t(t,e){var n;this.options=t,this.element=e,this.$element=$(this.element),n={fadeInDuration:20,fadeOutDuration:100,onClickActionItemCallback:null},this.options=$.extend({},n,options),this.$menuButton=this.$element.find(".dropdown_menu_button"),this.$menuList=this.$element.find(".dropdown_menu_list_wrapper"),this.isOpen=!1,this._buildMenuList(),this._bind()}return t.prototype.open=function(){return this.isOpen=!0,this.$menuList.fadeIn(this.options.fadeInDuration),this._positionMenuList(),this._positionNipple(),this},t.prototype.close=function(){return this.isOpen=!1,this.$menuList.fadeOut(this.options.fadeOutDuration),this},t.prototype.destroy=function(){return this.$element.unbind(),this.$element=null,this},t.prototype.isDisabled=function(){return this.$menuButton.hasClass("disabled")},t.prototype.disable=function(){return this.$menuButton.addClass("disabled")},t.prototype.enable=function(){return this.$menuButton.removeClass("disabled")},t.prototype.option=function(t,e){return $.isPlainObject(t)?this.options=$.extend(!0,this.options,t):null!=t?this.options[t]:this.options[t]=e},t.prototype._buildMenuList=function(){return this.$menuList.prepend('<div class="dropdown_menu_nipple"></div>'),this.$menuList.hide()},t.prototype._bind=function(){var t,e;return $("body").bind("click",(t=this,function(){if(!0===t.isOpen)return t.close()})),this.$menuButton.bind("click",(e=this,function(){return e.isDisabled()||(!0===e.isOpen?e.close():e.open()),!1}))},t.prototype._positionMenuList=function(){var t;return t=this.$menuButton.position().left+this.$menuButton.outerWidth()/2-this.$menuList.outerWidth()/2,this.$menuList.css("left",t)},t.prototype._positionNipple=function(){var t,e,n,o;return n=this.$menuList.outerWidth()/2,e=this.$menuButton.position().top+this.$menuButton.outerHeight()+10,this.$menuList.css("top",e),o=n-(t=this.$menuList.find(".dropdown_menu_nipple")).outerWidth()/2,t.css("left",o)},t}(),(t=jQuery).widget.bridge("aaDropdownMenu",AA.DropdownMenu),t(function(){return t(".dropdown_menu").aaDropdownMenu()})}.call(this),function(){window.AA.Popover=AA.Popover=function(){function t(t,e){var n;this.options=t,this.element=e,this.$element=$(this.element),n={fadeInDuration:20,fadeOutDuration:100,autoOpen:!0,pageWrapperElement:"#wrapper",onClickActionItemCallback:null},this.options=$.extend({},n,options),this.$popover=null,this.isOpen=!1,0<$(this.$element.attr("href")).length?this.$popover=$(this.$element.attr("href")):this.$popover=this.$element.next(".popover"),this._buildPopover(),this._bind()}return t.prototype.open=function(){return this.isOpen=!0,this.$popover.fadeIn(this.options.fadeInDuration),this._positionPopover(),this._positionNipple(),this},t.prototype.close=function(){return this.isOpen=!1,this.$popover.fadeOut(this.options.fadeOutDuration),this},t.prototype.destroy=function(){return this.$element.removeData("popover"),this.$element.unbind(),this.$element=null,this},t.prototype.option=function(){},t.prototype._buildPopover=function(){return this.$popover.prepend('<div class="popover_nipple"></div>'),this.$popover.hide(),this.$popover.addClass("popover")},t.prototype._bind=function(){var t,e;if($(this.options.pageWrapperElement).bind("click",(t=this,function(){if(!0===t.isOpen)return t.close()})),!0===this.options.autoOpen)return this.$element.bind("click",(e=this,function(){return!0===e.isOpen?e.close():e.open(),!1}))},t.prototype._positionPopover=function(){var t;return t=this.$element.offset().left+this.$element.outerWidth()/2-this.$popover.outerWidth()/2,this.$popover.css("left",t)},t.prototype._positionNipple=function(){var t,e,n,o;return n=this.$popover.outerWidth()/2,e=this.$element.offset().top+this.$element.outerHeight()+10,this.$popover.css("top",e),o=n-(t=this.$popover.find(".popover_nipple")).outerWidth()/2,t.css("left",o)},t}(),jQuery.widget.bridge("popover",AA.Popover)}.call(this),function(){var e=function(t,e){function n(){this.constructor=t}for(var o in e)i.call(e,o)&&(t[o]=e[o]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},i={}.hasOwnProperty;window.AA.TableCheckboxToggler=AA.TableCheckboxToggler=function(t){function n(){return n.__super__.constructor.apply(this,arguments)}return e(n,t),n.prototype._init=function(){return n.__super__._init.apply(this,arguments)},n.prototype._bind=function(){return n.__super__._bind.apply(this,arguments),this.$container.find("tbody td").click((e=this,function(t){if("checkbox"!==t.target.type)return e._didClickCell(t.target)}));var e},n.prototype._didChangeCheckbox=function(t){var e;return n.__super__._didChangeCheckbox.apply(this,arguments),e=$(t).parents("tr"),t.checked?e.addClass("selected"):e.removeClass("selected")},n.prototype._didClickCell=function(t){return $(t).parent("tr").find(":checkbox").click()},n}(AA.CheckboxToggler),jQuery(function(t){return t.widget.bridge("tableCheckboxToggler",AA.TableCheckboxToggler)})}.call(this),function(){$(function(){return $(document).on("focus",".datepicker:not(.hasDatepicker)",function(){return $(this).datepicker({dateFormat:"yy-mm-dd"})}),$(".clear_filters_btn").click(function(){return window.location.search=""}),$(".dropdown_button").popover(),$("#q_search").submit(function(){return $(this).find(":input").filter(function(){return""===this.value}).prop("disabled",!0)})})}.call(this),function(){jQuery(function(t){if(t(document).delegate("#batch_actions_selector li a","click.rails",function(){return t("#batch_action").val(t(this).attr("data-action")),t("#collection_selection").submit()}),t("#batch_actions_selector").length&&t(":checkbox.toggle_all").length)return t(".paginated_collection table.index_table").length?t(".paginated_collection table.index_table").tableCheckboxToggler():t(".paginated_collection").checkboxToggler(),t(".paginated_collection").find(":checkbox").bind("change",function(){return 0<t(".paginated_collection").find(":checkbox").filter(":checked").length?t("#batch_actions_selector").aaDropdownMenu("enable"):t("#batch_actions_selector").aaDropdownMenu("disable")})})}.call(this);
+(function() {
+  window.AA = {};
+
+}).call(this);
+(function() {
+  window.AA.CheckboxToggler = AA.CheckboxToggler = (function() {
+    function CheckboxToggler(options1, container) {
+      var defaults;
+      this.options = options1;
+      this.container = container;
+      defaults = {};
+      this.options = $.extend({}, defaults, options);
+      this._init();
+      this._bind();
+    }
+
+    CheckboxToggler.prototype._init = function() {
+      if (!this.container) {
+        throw new Error('Container element not found');
+      } else {
+        this.$container = $(this.container);
+      }
+      if (!this.$container.find('.toggle_all').length) {
+        throw new Error('"toggle all" checkbox not found');
+      } else {
+        this.toggle_all_checkbox = this.$container.find('.toggle_all');
+      }
+      return this.checkboxes = this.$container.find(':checkbox').not(this.toggle_all_checkbox);
+    };
+
+    CheckboxToggler.prototype._bind = function() {
+      this.checkboxes.change((function(_this) {
+        return function(e) {
+          return _this._didChangeCheckbox(e.target);
+        };
+      })(this));
+      return this.toggle_all_checkbox.change((function(_this) {
+        return function() {
+          return _this._didChangeToggleAllCheckbox();
+        };
+      })(this));
+    };
+
+    CheckboxToggler.prototype._didChangeCheckbox = function(checkbox) {
+      switch (this.checkboxes.filter(':checked').length) {
+        case this.checkboxes.length - 1:
+          return this.toggle_all_checkbox.prop({
+            checked: null
+          });
+        case this.checkboxes.length:
+          return this.toggle_all_checkbox.prop({
+            checked: true
+          });
+      }
+    };
+
+    CheckboxToggler.prototype._didChangeToggleAllCheckbox = function() {
+      var setting;
+      setting = this.toggle_all_checkbox.prop('checked') ? true : null;
+      return this.checkboxes.each((function(_this) {
+        return function(index, el) {
+          $(el).prop({
+            checked: setting
+          });
+          return _this._didChangeCheckbox(el);
+        };
+      })(this));
+    };
+
+    return CheckboxToggler;
+
+  })();
+
+  jQuery(function($) {
+    return $.widget.bridge('checkboxToggler', AA.CheckboxToggler);
+  });
+
+}).call(this);
+(function() {
+  window.AA.DropdownMenu = AA.DropdownMenu = (function() {
+    function DropdownMenu(options1, element) {
+      var defaults;
+      this.options = options1;
+      this.element = element;
+      this.$element = $(this.element);
+      defaults = {
+        fadeInDuration: 20,
+        fadeOutDuration: 100,
+        onClickActionItemCallback: null
+      };
+      this.options = $.extend({}, defaults, options);
+      this.$menuButton = this.$element.find(".dropdown_menu_button");
+      this.$menuList = this.$element.find(".dropdown_menu_list_wrapper");
+      this.isOpen = false;
+      this._buildMenuList();
+      this._bind();
+    }
+
+    DropdownMenu.prototype.open = function() {
+      this.isOpen = true;
+      this.$menuList.fadeIn(this.options.fadeInDuration);
+      this._positionMenuList();
+      this._positionNipple();
+      return this;
+    };
+
+    DropdownMenu.prototype.close = function() {
+      this.isOpen = false;
+      this.$menuList.fadeOut(this.options.fadeOutDuration);
+      return this;
+    };
+
+    DropdownMenu.prototype.destroy = function() {
+      this.$element.unbind();
+      this.$element = null;
+      return this;
+    };
+
+    DropdownMenu.prototype.isDisabled = function() {
+      return this.$menuButton.hasClass("disabled");
+    };
+
+    DropdownMenu.prototype.disable = function() {
+      return this.$menuButton.addClass("disabled");
+    };
+
+    DropdownMenu.prototype.enable = function() {
+      return this.$menuButton.removeClass("disabled");
+    };
+
+    DropdownMenu.prototype.option = function(key, value) {
+      if ($.isPlainObject(key)) {
+        return this.options = $.extend(true, this.options, key);
+      } else if (key != null) {
+        return this.options[key];
+      } else {
+        return this.options[key] = value;
+      }
+    };
+
+    DropdownMenu.prototype._buildMenuList = function() {
+      this.$menuList.prepend("<div class=\"dropdown_menu_nipple\"></div>");
+      return this.$menuList.hide();
+    };
+
+    DropdownMenu.prototype._bind = function() {
+      $("body").bind('click', (function(_this) {
+        return function() {
+          if (_this.isOpen === true) {
+            return _this.close();
+          }
+        };
+      })(this));
+      return this.$menuButton.bind('click', (function(_this) {
+        return function() {
+          if (!_this.isDisabled()) {
+            if (_this.isOpen === true) {
+              _this.close();
+            } else {
+              _this.open();
+            }
+          }
+          return false;
+        };
+      })(this));
+    };
+
+    DropdownMenu.prototype._positionMenuList = function() {
+      var centerOfButtonFromLeft, centerOfmenuListFromLeft, menuListLeftPos;
+      centerOfButtonFromLeft = this.$menuButton.position().left + this.$menuButton.outerWidth() / 2;
+      centerOfmenuListFromLeft = this.$menuList.outerWidth() / 2;
+      menuListLeftPos = centerOfButtonFromLeft - centerOfmenuListFromLeft;
+      return this.$menuList.css("left", menuListLeftPos);
+    };
+
+    DropdownMenu.prototype._positionNipple = function() {
+      var $nipple, bottomOfButtonFromTop, centerOfmenuListFromLeft, centerOfnippleFromLeft, nippleLeftPos;
+      centerOfmenuListFromLeft = this.$menuList.outerWidth() / 2;
+      bottomOfButtonFromTop = this.$menuButton.position().top + this.$menuButton.outerHeight() + 10;
+      this.$menuList.css("top", bottomOfButtonFromTop);
+      $nipple = this.$menuList.find(".dropdown_menu_nipple");
+      centerOfnippleFromLeft = $nipple.outerWidth() / 2;
+      nippleLeftPos = centerOfmenuListFromLeft - centerOfnippleFromLeft;
+      return $nipple.css("left", nippleLeftPos);
+    };
+
+    return DropdownMenu;
+
+  })();
+
+  (function($) {
+    $.widget.bridge('aaDropdownMenu', AA.DropdownMenu);
+    return $(function() {
+      return $(".dropdown_menu").aaDropdownMenu();
+    });
+  })(jQuery);
+
+}).call(this);
+(function() {
+  window.AA.Popover = AA.Popover = (function() {
+    function Popover(options1, element) {
+      var defaults;
+      this.options = options1;
+      this.element = element;
+      this.$element = $(this.element);
+      defaults = {
+        fadeInDuration: 20,
+        fadeOutDuration: 100,
+        autoOpen: true,
+        pageWrapperElement: "#wrapper",
+        onClickActionItemCallback: null
+      };
+      this.options = $.extend({}, defaults, options);
+      this.$popover = null;
+      this.isOpen = false;
+      if ($(this.$element.attr("href")).length > 0) {
+        this.$popover = $(this.$element.attr("href"));
+      } else {
+        this.$popover = this.$element.next(".popover");
+      }
+      this._buildPopover();
+      this._bind();
+    }
+
+    Popover.prototype.open = function() {
+      this.isOpen = true;
+      this.$popover.fadeIn(this.options.fadeInDuration);
+      this._positionPopover();
+      this._positionNipple();
+      return this;
+    };
+
+    Popover.prototype.close = function() {
+      this.isOpen = false;
+      this.$popover.fadeOut(this.options.fadeOutDuration);
+      return this;
+    };
+
+    Popover.prototype.destroy = function() {
+      this.$element.removeData('popover');
+      this.$element.unbind();
+      this.$element = null;
+      return this;
+    };
+
+    Popover.prototype.option = function() {};
+
+    Popover.prototype._buildPopover = function() {
+      this.$popover.prepend("<div class=\"popover_nipple\"></div>");
+      this.$popover.hide();
+      return this.$popover.addClass("popover");
+    };
+
+    Popover.prototype._bind = function() {
+      $(this.options.pageWrapperElement).bind('click', (function(_this) {
+        return function(e) {
+          if (_this.isOpen === true) {
+            return _this.close();
+          }
+        };
+      })(this));
+      if (this.options.autoOpen === true) {
+        return this.$element.bind('click', (function(_this) {
+          return function() {
+            if (_this.isOpen === true) {
+              _this.close();
+            } else {
+              _this.open();
+            }
+            return false;
+          };
+        })(this));
+      }
+    };
+
+    Popover.prototype._positionPopover = function() {
+      var centerOfButtonFromLeft, centerOfPopoverFromLeft, popoverLeftPos;
+      centerOfButtonFromLeft = this.$element.offset().left + this.$element.outerWidth() / 2;
+      centerOfPopoverFromLeft = this.$popover.outerWidth() / 2;
+      popoverLeftPos = centerOfButtonFromLeft - centerOfPopoverFromLeft;
+      return this.$popover.css("left", popoverLeftPos);
+    };
+
+    Popover.prototype._positionNipple = function() {
+      var $nipple, bottomOfButtonFromTop, centerOfPopoverFromLeft, centerOfnippleFromLeft, nippleLeftPos;
+      centerOfPopoverFromLeft = this.$popover.outerWidth() / 2;
+      bottomOfButtonFromTop = this.$element.offset().top + this.$element.outerHeight() + 10;
+      this.$popover.css("top", bottomOfButtonFromTop);
+      $nipple = this.$popover.find(".popover_nipple");
+      centerOfnippleFromLeft = $nipple.outerWidth() / 2;
+      nippleLeftPos = centerOfPopoverFromLeft - centerOfnippleFromLeft;
+      return $nipple.css("left", nippleLeftPos);
+    };
+
+    return Popover;
+
+  })();
+
+  (function($) {
+    return $.widget.bridge('popover', AA.Popover);
+  })(jQuery);
+
+}).call(this);
+(function() {
+  var extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  window.AA.TableCheckboxToggler = AA.TableCheckboxToggler = (function(superClass) {
+    extend(TableCheckboxToggler, superClass);
+
+    function TableCheckboxToggler() {
+      return TableCheckboxToggler.__super__.constructor.apply(this, arguments);
+    }
+
+    TableCheckboxToggler.prototype._init = function() {
+      return TableCheckboxToggler.__super__._init.apply(this, arguments);
+    };
+
+    TableCheckboxToggler.prototype._bind = function() {
+      TableCheckboxToggler.__super__._bind.apply(this, arguments);
+      return this.$container.find('tbody td').click((function(_this) {
+        return function(e) {
+          if (e.target.type !== 'checkbox') {
+            return _this._didClickCell(e.target);
+          }
+        };
+      })(this));
+    };
+
+    TableCheckboxToggler.prototype._didChangeCheckbox = function(checkbox) {
+      var $row;
+      TableCheckboxToggler.__super__._didChangeCheckbox.apply(this, arguments);
+      $row = $(checkbox).parents('tr');
+      if (checkbox.checked) {
+        return $row.addClass('selected');
+      } else {
+        return $row.removeClass('selected');
+      }
+    };
+
+    TableCheckboxToggler.prototype._didClickCell = function(cell) {
+      return $(cell).parent('tr').find(':checkbox').click();
+    };
+
+    return TableCheckboxToggler;
+
+  })(AA.CheckboxToggler);
+
+  jQuery(function($) {
+    return $.widget.bridge('tableCheckboxToggler', AA.TableCheckboxToggler);
+  });
+
+}).call(this);
+(function() {
+  $(function() {
+    $(document).on('focus', '.datepicker:not(.hasDatepicker)', function() {
+      return $(this).datepicker({
+        dateFormat: 'yy-mm-dd'
+      });
+    });
+    $('.clear_filters_btn').click(function() {
+      return window.location.search = '';
+    });
+    $('.dropdown_button').popover();
+    return $('#q_search').submit(function() {
+      return $(this).find(':input').filter(function() {
+        return this.value === '';
+      }).prop('disabled', true);
+    });
+  });
+
+}).call(this);
+(function() {
+  jQuery(function($) {
+    $(document).delegate("#batch_actions_selector li a", "click.rails", function() {
+      $("#batch_action").val($(this).attr("data-action"));
+      return $("#collection_selection").submit();
+    });
+    if ($("#batch_actions_selector").length && $(":checkbox.toggle_all").length) {
+      if ($(".paginated_collection table.index_table").length) {
+        $(".paginated_collection table.index_table").tableCheckboxToggler();
+      } else {
+        $(".paginated_collection").checkboxToggler();
+      }
+      return $(".paginated_collection").find(":checkbox").bind("change", function() {
+        if ($(".paginated_collection").find(":checkbox").filter(":checked").length > 0) {
+          return $("#batch_actions_selector").aaDropdownMenu("enable");
+        } else {
+          return $("#batch_actions_selector").aaDropdownMenu("disable");
+        }
+      });
+    }
+  });
+
+}).call(this);
+
+
+
