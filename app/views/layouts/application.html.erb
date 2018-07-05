@@ -22,7 +22,7 @@
 						<li><%= link_to "Home", root_path %></li>
 						<li><%= link_to "About", about_path  %></li>
 						<li><%= link_to "Contact", contact_path %></li>
-						<li><%= link_to "Resources", resources_path %></li>
+						
 	</ul>		
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 				<% end %>
 							</ul>
 						</ul>
-							<h2> Blogroll </h2>
+							<h2> Recent Posts </h2>
 							<ul>
 							<% all_posts.each do |post| %>
 							<li><%= link_to post.title, post_path(:id => post.id) %></li> 

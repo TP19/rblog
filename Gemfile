@@ -7,6 +7,8 @@ gem 'rails', '3.2.12'
 
 #gem 'sqlite3'
 
+gem 'puma'
+
 gem 'pg'
 
 gem 'activeadmin'
