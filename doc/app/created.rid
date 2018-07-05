@@ -1,0 +1,19 @@
+Thu, 05 Jul 2018 01:28:04 +0200
+doc/README_FOR_APP	Tue, 15 May 2018 17:26:05 +0200
+app/admin/admin_user.rb	Sun, 27 May 2018 02:48:22 +0200
+app/admin/categories.rb	Fri, 18 May 2018 01:43:59 +0200
+app/admin/dashboard.rb	Sun, 27 May 2018 03:31:33 +0200
+app/admin/posts.rb	Sun, 27 May 2018 03:24:45 +0200
+app/controllers/application_controller.rb	Sun, 27 May 2018 02:31:06 +0200
+app/controllers/categories_controller.rb	Fri, 18 May 2018 00:27:45 +0200
+app/controllers/home_controller.rb	Sat, 19 May 2018 02:31:20 +0200
+app/controllers/pages_controller.rb	Sat, 19 May 2018 03:39:45 +0200
+app/controllers/posts_controller.rb	Sun, 27 May 2018 03:34:00 +0200
+app/helpers/application_helper.rb	Tue, 15 May 2018 17:26:05 +0200
+app/helpers/categories_helper.rb	Thu, 17 May 2018 03:11:34 +0200
+app/helpers/home_helper.rb	Tue, 15 May 2018 21:20:17 +0200
+app/helpers/pages_helper.rb	Sat, 19 May 2018 03:39:45 +0200
+app/helpers/posts_helper.rb	Wed, 16 May 2018 20:43:15 +0200
+app/models/admin_user.rb	Sun, 27 May 2018 02:52:06 +0200
+app/models/category.rb	Wed, 16 May 2018 23:35:18 +0200
+app/models/post.rb	Sun, 27 May 2018 03:28:25 +0200
